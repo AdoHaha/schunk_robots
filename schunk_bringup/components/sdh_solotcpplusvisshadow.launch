@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<launch>
+
+  	<param name="robot_shadow_description" command="cat '$(find schunk_description)'/urdf/sdh/modelshadow.urdf" />
+
+    <!-- start sdh -->
+    <include file="$(find schunk_bringup)/components/sdh_solotcpplusvis.launch"/>
+     <node pkg="robot_state_publisher" type="state_publisher" name="shadow_publisher" >
+      <remap from="robot_description" to="robot_shadow_description" />
+      <remap from="joint_states" to="shadow_joint_states" />
+    </node>
+<node name="glove_arduino" pkg="rosserial_python" type="serial_node.py" args="/dev/ttyACM0" output="screen" />
+
+</launch>

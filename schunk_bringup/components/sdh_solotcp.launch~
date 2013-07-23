@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<launch>
+
+    <!-- upload robot_description -->
+   <!-- <include file="$(find schunk_hardware_config)/sdh/urdf/upload_sdh.launch"/>-->
+<param name="robot_description" command="$(find schunk_description)/urdf/sdh/modeldoprob.urdf"/>
+    <!-- start robot_state_publisher -->
+	<param name="publish_frequency" value="50.0" />
+
+    <node pkg="robot_state_publisher" type="state_publisher" name="robot_state_publisher"/>
+
+    <!-- start sdh -->
+    <include file="$(find schunk_bringup)/components/sdhtcp.launch"/>
+
+</launch>

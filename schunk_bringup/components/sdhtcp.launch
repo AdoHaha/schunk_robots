@@ -3,7 +3,8 @@
 
     <!-- upload script server parameters -->
     <rosparam command="load" ns="/script_server/sdh" file="$(find schunk_default_config)/config/sdh_joint_configurations.yaml"/>
-
+<!-- upload soft pid parameters -->
+<rosparam ns="sdh_controller" file="$(find schunk_sdh)/pid_params.yaml" command="load" />
     <!-- startup sdh -->
     <node name="sdh_controller" pkg="schunk_sdh" type="schunk_sdh" cwd="node" respawn="true" output="screen" >
         <rosparam command="load" file="$(find schunk_hardware_config)/sdh/config/sdhtcp.yaml"/>

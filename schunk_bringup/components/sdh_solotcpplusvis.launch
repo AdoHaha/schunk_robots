@@ -4,6 +4,6 @@
   
     <!-- start sdh -->
     <include file="$(find schunk_bringup)/components/sdh_solotcp.launch"/>
- <node pkg="rviz" type="rviz" args="-d $(find urdf_tutorial)/urdf.vcg" name="visualisation"/>
+ <node pkg="rviz" type="rviz" args="-d $(find urdf_tutorial)/urdf_tutorial/urdf.rviz" name="visualisation"/>
 
 </launch>
